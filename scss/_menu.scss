@@ -1,0 +1,159 @@
+.menu-btn {
+  position: absolute;
+  z-index: 3;
+  right: 35px;
+  top: 35px;
+  cursor: pointer;
+  @include easeOut;
+
+  .btn-line {
+    width: 28px;
+    height: 3px;
+    margin: 0 0 5px 0;
+    background: white;
+    @include easeOut;
+  }
+
+  //Rotate menu lines
+  &.close {
+    transform: rotate(180deg);
+
+    .btn-line {
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+    }
+  }
+}
+
+// Menu Overlay
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  //opacity: 0.8;
+  visibility: hidden;
+  animation-name: blurEffectOut;
+  animation-duration: 2s;
+  backdrop-filter: blur(0px);
+
+  &.show {
+    visibility: visible;
+    //backdrop-filter: blur(12px);
+    animation-name: blurEffectIn;
+    animation-duration: 2s;
+    backdrop-filter: blur(12px);
+  }
+
+  &-branding,
+  &-nav {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    width: 50%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  &-nav {
+    margin: 0;
+    padding: 0;
+    line-height: 0.7;
+    //line-height: 1;
+    background: rgba(darken(rgb(75, 0, 130), 5), 0.6);
+    list-style: none;
+    transform: translate3d(100%, 0, 0);
+    @include easeOut;
+
+    &.show {
+      // Slide in from
+
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  // Branding Side
+  &-branding {
+    background: rgba(darken(rgb(244, 114, 9), 5), 0.6);
+    transform: translate3d(-100%, 0, 0);
+    @include easeOut;
+
+    &.show {
+      // Slide in from bottom
+      transform: translate3d(0, 0, 0);
+    }
+
+    .portrait {
+      width: 250px;
+      height: 250px;
+      background: url("../img/p.jpg");
+      border-radius: 50%;
+      border: solid 3px $secondary-color;
+    }
+  }
+
+  .nav-item {
+    // Delay each nav item slide by 0.1s
+
+    transform: translate3d(0, 0, 0);
+
+    //@include easeOut;
+
+    &.show {
+      // Slide in from right
+      transform: translate3d(0, 0, 0);
+    }
+
+    &.current>a {
+      color: $secondary-color;
+    }
+  }
+
+  .nav-link {
+    display: inline-block;
+    position: relative;
+    font-size: 30px;
+    //text-transform: uppercase;
+    padding: 1rem 0;
+    font-weight: 300;
+    color: set-text-color($primary-color);
+    text-decoration: none;
+    @include easeOut;
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+}
+
+@keyframes blurEffectIn {
+  from {
+    //background-color: red;
+    backdrop-filter: blur(0px);
+  }
+
+  to {
+    backdrop-filter: blur(12px);
+  }
+}
+
+@keyframes blurEffectOut {
+  from {
+    //background-color: red;
+    backdrop-filter: blur(12px);
+  }
+
+  to {
+    backdrop-filter: blur(0px);
+  }
+}
