@@ -30,9 +30,10 @@ h3 {
   }
 
   &.sm-heading {
-    margin-bottom: 2rem;
-    padding: 0.2rem, 1rem;
-    //border-radius: 12px;
+    //margin-bottom: 2rem;
+    //padding: 0.2rem, 1rem;
+    padding: 0.5rem;
+    border-radius: 12px;
     background: rgba(lighten($color: $primary-color, $amount: 2), 0.5);
   }
 }
