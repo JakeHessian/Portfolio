@@ -166,10 +166,13 @@ main {
     main#home h1 {
       margin-top: 20vh; }
 
+.bio-text {
+  font-size: 1rem; }
+
 .about-info {
   display: grid;
   grid-gap: 30px;
-  grid-template-areas: "bioimage bio bio" "job1 job2 job3";
+  grid-template-areas: "bioimage bio bio" "subtitle subtitle subtitle" "job1 job2 job3";
   grid-template-columns: repeat(3, 1fr); }
   .about-info .bio-image {
     grid-area: bioimage;
@@ -178,7 +181,11 @@ main {
     border: yellow 3px solid; }
   .about-info .bio {
     grid-area: bio;
-    font-size: 1.5rem; }
+    font-size: 2rem; }
+  .about-info .about-subtitle {
+    grid-area: subtitle;
+    font-size: 2rem;
+    color: yellow; }
   .about-info .job-1 {
     grid-area: job1; }
   .about-info .job-2 {
