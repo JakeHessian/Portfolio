@@ -61,7 +61,7 @@
     .menu-branding .portrait {
       width: 250px;
       height: 250px;
-      background: url("../img/p.jpg");
+      background: url("../img/portrait_large.png");
       border-radius: 50%;
       border: solid 3px yellow; }
   .menu .nav-item {
@@ -198,12 +198,64 @@ main {
     border-bottom: yellow 5px solid;
     border-top: yellow 5px solid; }
 
+.scuba {
+  display: grid;
+  grid-gap: 0.7rem;
+  grid-template-columns: repeat(3, 1fr); }
+  .scuba img {
+    width: 100%;
+    border: 3px yellow solid; }
+  .scuba .description {
+    display: flex;
+    justify-content: center; }
+
+.projects {
+  display: grid;
+  grid-gap: 0.7rem;
+  grid-template-columns: repeat(3, 1fr); }
+  .projects img {
+    width: 100%;
+    border: 3px yellow solid; }
+    .projects img:hover {
+      opacity: 0.5;
+      border-color: yellow;
+      transition: all 0.8s ease-out; }
+
+.btn, .btn-dark, .btn-light {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem; }
+  .btn:hover, .btn-dark:hover, .btn-light:hover {
+    background: red;
+    color: set-text-color(black); }
+
+.btn-dark {
+  background: black;
+  color: #fff; }
+
+.btn-light {
+  background: white;
+  color: black; }
+
 #main-footer {
   text-align: center;
   padding: 1rem;
   background: #2b2b2b;
   color: set-text-color(#444);
   height: 60px; }
+
+@media screen and (max-width: 1171px) {
+  .projects {
+    grid-template-columns: repeat(4, 1fr); }
+  .scuba {
+    grid-template-columns: repeat(4, 1fr); } }
+
+@media screen and (min-width: 769px) and (max-width: 1170px) {
+  .projects {
+    grid-template-columns: repeat(3, 1fr); }
+  .scuba {
+    grid-template-columns: repeat(3, 1fr); } }
 
 @media screen and (max-width: 768px) {
   main {
@@ -228,13 +280,21 @@ main {
     height: 25vh;
     transform: translate3d(100%, 0, 0); }
     .menu-branding .portrait {
-      background: url("../img/portrait_small.jpg");
+      background: url("../img/portrait_small.png");
       width: 150px;
       height: 150px; }
   .about-info {
     grid-template-areas: "bioimage" "bio" "job1" "job2" "job3";
-    grid-template-columns: 1fr; } }
+    grid-template-columns: 1fr; }
+  .projects {
+    grid-template-columns: repeat(2, 1fr); }
+  .scuba {
+    grid-template-columns: repeat(2, 1fr); } }
 
 @media screen and (max-width: 500px) {
   main#home h1 {
-    margin-top: 10vh; } }
+    margin-top: 10vh; }
+  .projects {
+    grid-template-columns: 1fr; }
+  .scuba {
+    grid-template-columns: 1fr; } }
